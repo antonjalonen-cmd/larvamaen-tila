@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Larvamäen Tila — Ylämaankarja Pojanluomassa, Ilmajoki</title>
+<meta name="description" content="Larvamäen tila kasvattaa ylämaankarjaa Pojanluomassa, Ilmajoella. Luonnonmukainen emolehmätuotanto pehmeillä Pohjanmaan laitumilla vuodesta 2012. Suoraa lihaa tilalta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1610;
+  --moor: #342820;
+  --rust: #8b3a1a;
+  --rust-l: #a84c24;
+  --gold: #c07830;
+  --gold-l: #d08840;
+  --cream: #f5ede0;
+  --linen: #ede4d2;
+  --parch: #f9f4ec;
+  --fog: #c8b8a0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Epilogue',sans-serif;background:var(--parch);color:var(--ink);line-height:1.65;overflow-x:hidden;}
+
+/* i18n */
+.lang-sv,.lang-en{display:none;}
+html[lang="sv"] .lang-fi{display:none;}
+html[lang="sv"] .lang-sv{display:inline;}
+html[lang="en"] .lang-fi{display:none;}
+html[lang="en"] .lang-en{display:inline;}
+.i18n-block{display:none;}
+.i18n-block.lang-fi{display:block;}
+html[lang="sv"] .i18n-block.lang-fi{display:none;}
+html[lang="sv"] .i18n-block.lang-sv{display:block;}
+html[lang="en"] .i18n-block.lang-fi{display:none;}
+html[lang="en"] .i18n-block.lang-en{display:block;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:58px;background:var(--ink);}
+.nav-brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;}
+.nav-brand img{width:30px;height:30px;border-radius:50%;object-fit:cover;border:1px solid rgba(192,120,48,.4);}
+.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:600;color:var(--cream);letter-spacing:.04em;}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--cream);}
+.nav-right{display:flex;align-items:center;gap:.7rem;}
+.lang-btns{display:flex;gap:.2rem;}
+.lang-btns button{background:none;border:1px solid transparent;color:var(--fog);opacity:.55;font-family:'Epilogue',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .35rem;border-radius:2px;cursor:pointer;transition:all .2s;}
+.lang-btns button:hover,.lang-btns button.active{opacity:1;color:var(--gold);border-color:rgba(192,120,48,.4);}
+.hamburger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--fog);transition:all .3s;}
+.nav-overlay{position:fixed;inset:0;z-index:99;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;}
+.nav-overlay.open{opacity:1;visibility:visible;}
+.nav-overlay a{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--cream);text-decoration:none;letter-spacing:.04em;transition:color .2s;}
+.nav-overlay a:hover{color:var(--gold);}
+.overlay-lang{display:flex;gap:.65rem;margin-top:.5rem;}
+.overlay-lang button{background:none;border:1px solid rgba(192,120,48,.3);color:var(--fog);font-family:'Epilogue',sans-serif;font-size:.72rem;font-weight:600;padding:.28rem .6rem;border-radius:2px;cursor:pointer;transition:all .2s;}
+.overlay-lang button:hover{color:var(--gold);border-color:var(--gold);}
+
+/* HERO — "Window on the land": dark void, inset-framed photo, name below */
+.hero{width:100%;min-height:100vh;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 4vw 4rem;}
+.hero-window{width:100%;max-width:1160px;position:relative;}
+.hero-frame{width:100%;aspect-ratio:16/7;overflow:hidden;position:relative;}
+.hero-frame img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.hero-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,22,16,.15) 0%,rgba(26,22,16,.0) 60%);}
+.hero-caption{padding:2.2rem 0 0;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;}
+.hero-left{}
+.hero-eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:300;color:var(--cream);line-height:1.0;letter-spacing:.02em;}
+.hero-right{display:flex;flex-direction:column;align-items:flex-end;gap:1.2rem;padding-top:.4rem;}
+.hero-tagline{font-size:.88rem;font-weight:300;color:var(--fog);line-height:1.75;max-width:320px;text-align:right;}
+.btn-primary{display:inline-block;padding:.65rem 1.7rem;background:var(--rust);color:var(--cream);text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:none;transition:background .2s;cursor:pointer;}
+.btn-primary:hover{background:var(--rust-l);}
+.btn-ghost{font-size:.68rem;font-weight:500;letter-spacing:.12em;color:var(--fog);text-decoration:none;border-bottom:1px solid rgba(200,184,160,.3);padding-bottom:2px;transition:color .2s,border-color .2s;}
+.btn-ghost:hover{color:var(--cream);border-color:var(--fog);}
+
+/* FACTS STRIP */
+.facts{background:var(--moor);padding:3.5rem 2rem;}
+.facts-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);}
+.fact{background:var(--moor);padding:2rem 2rem 1.8rem;text-align:center;}
+.fact-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:.4rem;}
+.fact-label{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);}
+
+/* SECTIONS */
+section{padding:6rem 2rem;}
+.container{max-width:1100px;margin:0 auto;}
+.s-label{font-size:.62rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);margin-bottom:.75rem;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,3rem);color:var(--ink);line-height:1.1;margin-bottom:1.4rem;font-weight:300;}
+.s-body{font-size:.95rem;font-weight:300;line-height:1.85;color:var(--moor);max-width:560px;}
+
+/* STORY */
+.story{background:var(--parch);}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-top:3.5rem;}
+.story-text .s-body{max-width:100%;}
+.story-text .s-title{font-size:clamp(1.7rem,3vw,2.4rem);}
+.story-photo{overflow:hidden;}
+.story-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;}
+.story-accent{display:flex;align-items:center;gap:1rem;margin-top:2.2rem;padding-top:2rem;border-top:1px solid rgba(52,40,32,.12);}
+.story-accent-line{width:40px;height:1px;background:var(--gold);flex-shrink:0;}
+.story-accent p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--rust);line-height:1.5;}
+
+/* ROTUKORTTI — SIGNATURE */
+.rotukortti{background:var(--ink);padding:6rem 2rem;}
+.rotukortti .s-label{color:var(--gold);}
+.rotukortti .s-title{color:var(--cream);}
+.rotu-card{background:var(--moor);border:1px solid rgba(192,120,48,.2);padding:3rem;margin-top:3rem;max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.rotu-header{grid-column:span 2;display:flex;align-items:center;gap:1.8rem;padding-bottom:2rem;border-bottom:1px solid rgba(192,120,48,.18);}
+.rotu-logo{width:72px;height:72px;border-radius:50%;overflow:hidden;border:2px solid rgba(192,120,48,.35);flex-shrink:0;}
+.rotu-logo img{width:100%;height:100%;object-fit:cover;}
+.rotu-title-block{}
+.rotu-latin{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fog);margin-bottom:.3rem;}
+.rotu-breed{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--cream);line-height:1.1;}
+.rotu-origin{font-size:.82rem;font-weight:300;color:var(--fog);margin-top:.25rem;}
+.rotu-traits{display:flex;flex-direction:column;gap:1.1rem;}
+.rotu-trait{}
+.rotu-trait-label{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;}
+.rotu-trait-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;}
+.rotu-trait-fill{height:100%;background:linear-gradient(90deg,var(--rust),var(--gold));border-radius:2px;}
+.rotu-trait-note{font-size:.8rem;font-weight:300;color:var(--fog);margin-top:.3rem;}
+.rotu-desc{display:flex;flex-direction:column;gap:1.2rem;}
+.rotu-desc-item{}
+.rotu-desc-lbl{font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+.rotu-desc-val{font-size:.87rem;font-weight:300;color:var(--fog);line-height:1.65;}
+
+/* HOW TO ORDER */
+.order{background:var(--linen);padding:6rem 2rem;}
+.order-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;}
+.step{padding:2.5rem 2rem 2.5rem;position:relative;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(52,40,32,.08);line-height:1;position:absolute;top:1rem;right:1.5rem;}
+.step-icon{font-size:1.6rem;margin-bottom:1rem;}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--ink);margin-bottom:.7rem;}
+.step-desc{font-size:.87rem;font-weight:300;color:var(--moor);line-height:1.75;}
+
+/* GALLERY STRIP */
+.gallery-strip{background:var(--ink);padding:0;}
+.gallery-strip-inner{display:grid;grid-template-columns:2fr 1fr;height:380px;}
+.gallery-strip-inner img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* CONTACT */
+.contact{background:var(--parch);padding:6rem 2rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;margin-top:3rem;align-items:start;}
+.contact-list{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-item{display:flex;flex-direction:column;gap:.22rem;}
+.contact-lbl{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rust);}
+.contact-val{font-size:.97rem;font-weight:300;color:var(--moor);line-height:1.55;}
+.contact-val a{color:var(--moor);text-decoration:none;border-bottom:1px solid rgba(52,40,32,.2);padding-bottom:1px;transition:color .2s,border-color .2s;}
+.contact-val a:hover{color:var(--ink);border-color:var(--ink);}
+.contact-cta{margin-top:.5rem;}
+.contact-cta a{display:inline-block;padding:.7rem 2rem;background:var(--rust);color:var(--cream);text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .2s;}
+.contact-cta a:hover{background:var(--rust-l);}
+.contact-quote{padding:2.5rem 2.5rem 2.5rem;border-left:3px solid var(--gold);background:var(--linen);}
+.contact-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;font-style:italic;color:var(--ink);line-height:1.45;margin-bottom:.8rem;}
+.contact-quote cite{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);}
+
+/* FOOTER */
+.footer{background:var(--ink);padding:1.5rem 2rem;text-align:center;}
+.footer p{font-size:.65rem;font-weight:300;color:rgba(200,184,160,.35);letter-spacing:.07em;}
+.footer a{color:rgba(192,120,48,.4);text-decoration:none;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-l{opacity:0;transform:translateX(-18px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-l.visible{opacity:1;transform:none;}
+.reveal-r{opacity:0;transform:translateX(18px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-r.visible{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal-l,.reveal-r{opacity:1;transform:none;}}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero-caption{flex-direction:column;gap:1.5rem;}
+  .hero-right{align-items:flex-start;text-align:left;}
+  .hero-tagline{text-align:left;}
+  .story-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .facts-grid{grid-template-columns:repeat(2,1fr);}
+  .rotu-card{grid-template-columns:1fr;gap:2rem;}
+  .rotu-header{grid-column:auto;}
+  .order-steps{grid-template-columns:1fr;}
+  .gallery-strip-inner{grid-template-columns:1fr;height:auto;}
+  .gallery-strip-inner img:last-child{display:none;}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+}
+@media(max-width:600px){
+  .nav{padding:0 1.2rem;}
+  .hero{padding:72px 1.25rem 2.5rem;}
+  .hero-frame{aspect-ratio:16/9;}
+  section{padding:4rem 1.25rem;}
+  .facts-grid{grid-template-columns:1fr 1fr;}
+  .rotu-card{padding:1.75rem 1.25rem;}
+  .order-steps{gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-brand">
+    <img src="images/logo.jpg" alt="Larvamäen tila">
+    <span class="nav-wordmark">Larvamäen Tila</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tila"><span class="lang-fi">Tila</span><span class="lang-sv">Gården</span><span class="lang-en">The Farm</span></a></li>
+    <li><a href="#nauta"><span class="lang-fi">Nauta</span><span class="lang-sv">Nötkreatur</span><span class="lang-en">Cattle</span></a></li>
+    <li><a href="#tilaus"><span class="lang-fi">Tilaa</span><span class="lang-sv">Beställ</span><span class="lang-en">Order</span></a></li>
+    <li><a href="#yhteystiedot"><span class="lang-fi">Yhteystiedot</span><span class="lang-sv">Kontakt</span><span class="lang-en">Contact</span></a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-btns">
+      <button onclick="setLang('fi')" id="btn-fi" class="active">FI</button>
+      <button onclick="setLang('sv')" id="btn-sv">SV</button>
+      <button onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Valikko">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay">
+  <a href="#tila" onclick="toggleMenu()"><span class="lang-fi">Tila</span><span class="lang-sv">Gården</span><span class="lang-en">The Farm</span></a>
+  <a href="#nauta" onclick="toggleMenu()"><span class="lang-fi">Nauta</span><span class="lang-sv">Nötkreatur</span><span class="lang-en">Cattle</span></a>
+  <a href="#tilaus" onclick="toggleMenu()"><span class="lang-fi">Tilaa</span><span class="lang-sv">Beställ</span><span class="lang-en">Order</span></a>
+  <a href="#yhteystiedot" onclick="toggleMenu()"><span class="lang-fi">Yhteystiedot</span><span class="lang-sv">Kontakt</span><span class="lang-en">Contact</span></a>
+  <div class="overlay-lang">
+    <button onclick="setLang('fi');toggleMenu()">FI</button>
+    <button onclick="setLang('sv');toggleMenu()">SV</button>
+    <button onclick="setLang('en');toggleMenu()">EN</button>
+  </div>
+</div>
+
+<!-- HERO: window on the land -->
+<div class="hero">
+  <div class="hero-window">
+    <div class="hero-frame">
+      <img src="images/hero.jpg" alt="Ylämaankarja laitumella Pojanluomassa">
+    </div>
+    <div class="hero-caption">
+      <div class="hero-left">
+        <p class="hero-eyebrow">
+          <span class="lang-fi">Pojanluoma &middot; Ilmajoki &middot; Etelä-Pohjanmaa</span>
+          <span class="lang-sv">Pojanluoma &middot; Ilmajoki &middot; Södra Österbotten</span>
+          <span class="lang-en">Pojanluoma &middot; Ilmajoki &middot; South Ostrobothnia</span>
+        </p>
+        <h1 class="hero-title">
+          <span class="lang-fi">Larvamäen<br>Tila</span>
+          <span class="lang-sv">Larvamäki<br>Gård</span>
+          <span class="lang-en">Larvamäen<br>Farm</span>
+        </h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-tagline">
+          <span class="lang-fi">Ylämaankarjaa luonnonlaitumilla Pohjanmaan tasangoilla. Vapaana kasvava, laadukas liha suoraan tilalta.</span>
+          <span class="lang-sv">Höglandsnötkreatur på naturliga betesmarker på de österbottniska slätterna. Frilandsfött, kvalitetskött direkt från gården.</span>
+          <span class="lang-en">Highland cattle on natural pastures across the Ostrobothrian plains. Free-range, quality beef direct from the farm.</span>
+        </p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:flex-end;">
+          <a href="#yhteystiedot" class="btn-primary">
+            <span class="lang-fi">Ota yhteyttä</span>
+            <span class="lang-sv">Kontakta oss</span>
+            <span class="lang-en">Get in touch</span>
+          </a>
+          <a href="#nauta" class="btn-ghost">
+            <span class="lang-fi">Tutki rotua</span>
+            <span class="lang-sv">Utforska rasen</span>
+            <span class="lang-en">Explore the breed</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FACTS STRIP -->
+<div class="facts">
+  <div class="facts-grid">
+    <div class="fact reveal">
+      <div class="fact-num">2012</div>
+      <div class="fact-label"><span class="lang-fi">Toiminnassa</span><span class="lang-sv">I drift sedan</span><span class="lang-en">Operating since</span></div>
+    </div>
+    <div class="fact reveal">
+      <div class="fact-num"><span class="lang-fi">Ylämaan&shy;karja</span><span class="lang-sv">Highlands</span><span class="lang-en">Highland</span></div>
+      <div class="fact-label"><span class="lang-fi">Rotu</span><span class="lang-sv">Ras</span><span class="lang-en">Breed</span></div>
+    </div>
+    <div class="fact reveal">
+      <div class="fact-num"><span style="font-size:1.8rem">Emo&shy;lehm&auml;</span></div>
+      <div class="fact-label"><span class="lang-fi">Tuotantosuunta</span><span class="lang-sv">Inriktning</span><span class="lang-en">Production type</span></div>
+    </div>
+    <div class="fact reveal">
+      <div class="fact-num"><span class="lang-fi">Laidun</span><span class="lang-sv">Bete</span><span class="lang-en">Pasture</span></div>
+      <div class="fact-label"><span class="lang-fi">Kasvutapa</span><span class="lang-sv">Uppfödning</span><span class="lang-en">Raised on</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="tila">
+  <div class="container">
+    <p class="s-label reveal"><span class="lang-fi">Tilan tarina</span><span class="lang-sv">Gårdens historia</span><span class="lang-en">The farm story</span></p>
+    <div class="story-grid">
+      <div class="story-text">
+        <h2 class="s-title reveal">
+          <span class="lang-fi">Pohjanmaan tasangot,<br>skotlantilainen rotu.</span>
+          <span class="lang-sv">Österbottens slätter,<br>en skotsk ras.</span>
+          <span class="lang-en">The Ostrobothrian plains,<br>a Scottish breed.</span>
+        </h2>
+        <p class="s-body reveal">
+          <span class="lang-fi">Larvamäen tila aloitti ylämaankarjan kasvattamisen vuonna 2012 Pojanluomassa, Ilmajoella. Laajoilla Pohjanmaan laidunalueilla ylämaankarja viihtyy erinomaisesti &mdash; rotu on tottunut karuihin olosuhteisiin, ja Etelä-Pohjanmaan rehevät niityt tarjoavat sille ihanteelliset puitteet.</span>
+          <span class="lang-sv">Larvamäen gård påbörjade uppfödning av Highlandnötkreatur år 2012 i Pojanluoma, Ilmajoki. På de vida österbottniska betesmarkerna trivs Highlands utmärkt &mdash; rasen är van vid hårda förhållanden och de frodiga ängarna i Södra Österbotten erbjuder idealiska betingelser.</span>
+          <span class="lang-en">Larvamäen farm began raising Highland cattle in 2012 in Pojanluoma, Ilmajoki. Across the wide Ostrobothrian pastures, Highland cattle thrive exceptionally well &mdash; the breed is accustomed to rugged conditions, and the lush meadows of South Ostrobothnia offer it an ideal setting.</span>
+        </p>
+        <p class="s-body reveal" style="margin-top:1.2rem;">
+          <span class="lang-fi">Emolehmätuotannossa vasikka kasvaa emon kanssa luonnollisesti ensimmäiset kuukaudet. Hidas kasvu ja runsas liikunta laitumella tuottavat lihaa, jonka maku ja rakenne erottuvat tehotuotannosta. Tämä on sen verran yksinkertaista.</span>
+          <span class="lang-sv">I dikalvsproduktionen växer kalven naturligt med sin mamma under de första månaderna. Långsam tillväxt och riklig motion på bete ger kött vars smak och konsistens tydligt skiljer sig från intensivproduktion. Det är så enkelt.</span>
+          <span class="lang-en">In cow-calf production, the calf grows naturally with its mother for the first months of life. Slow growth and ample movement on pasture produce beef whose flavour and texture stand apart from intensive production. It really is that simple.</span>
+        </p>
+        <div class="story-accent reveal">
+          <div class="story-accent-line"></div>
+          <p>
+            <span class="lang-fi">"Eläimellä pitää olla tilaa olla eläin."</span>
+            <span class="lang-sv">"Djuret måste ha utrymme att vara ett djur."</span>
+            <span class="lang-en">"An animal must have room to be an animal."</span>
+          </p>
+        </div>
+      </div>
+      <div class="story-photo reveal-r">
+        <img src="images/gallery1.jpg" alt="Ylämaankarja laitumella">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROTUKORTTI — SIGNATURE -->
+<section class="rotukortti" id="nauta">
+  <div class="container">
+    <p class="s-label reveal"><span class="lang-fi">Rotukortti</span><span class="lang-sv">Raskortet</span><span class="lang-en">Breed card</span></p>
+    <h2 class="s-title reveal">
+      <span class="lang-fi">Ylämaankarja &mdash;<br>Bos taurus.</span>
+      <span class="lang-sv">Highlandnöt &mdash;<br>Bos taurus.</span>
+      <span class="lang-en">Highland cattle &mdash;<br>Bos taurus.</span>
+    </h2>
+    <div class="rotu-card reveal">
+      <div class="rotu-header">
+        <div class="rotu-logo">
+          <img src="images/logo.jpg" alt="Larvamäen tila">
+        </div>
+        <div class="rotu-title-block">
+          <p class="rotu-latin">Bos taurus — Highland Cattle</p>
+          <h3 class="rotu-breed">
+            <span class="lang-fi">Ylämaankarja</span>
+            <span class="lang-sv">Highlandnöt</span>
+            <span class="lang-en">Scottish Highland</span>
+          </h3>
+          <p class="rotu-origin">
+            <span class="lang-fi">Kotimaa: Skotlanti &mdash; Suomessa vuodesta 1990-luvulta</span>
+            <span class="lang-sv">Ursprungsland: Skottland &mdash; I Finland sedan 1990-talet</span>
+            <span class="lang-en">Origin: Scotland &mdash; In Finland since the 1990s</span>
+          </p>
+        </div>
+      </div>
+      <div class="rotu-traits">
+        <div class="rotu-trait">
+          <p class="rotu-trait-label"><span class="lang-fi">Kestävyys</span><span class="lang-sv">Uthållighet</span><span class="lang-en">Hardiness</span></p>
+          <div class="rotu-trait-bar"><div class="rotu-trait-fill" style="width:100%"></div></div>
+          <p class="rotu-trait-note"><span class="lang-fi">Selviytyy ulkona ympäri vuoden pitkällä karvapeitteellä</span><span class="lang-sv">Klarar sig utomhus året runt tack vare tjock päls</span><span class="lang-en">Survives outdoors year-round thanks to thick double coat</span></p>
+        </div>
+        <div class="rotu-trait">
+          <p class="rotu-trait-label"><span class="lang-fi">Luonne</span><span class="lang-sv">Temperament</span><span class="lang-en">Temperament</span></p>
+          <div class="rotu-trait-bar"><div class="rotu-trait-fill" style="width:90%"></div></div>
+          <p class="rotu-trait-note"><span class="lang-fi">Rauhallinen, hoitajaan luottava, hyvä emovaistoilla</span><span class="lang-sv">Lugnt, förtroendefullt mot skötaren, utmärkta moderinstinkter</span><span class="lang-en">Calm, trusting toward handler, excellent maternal instincts</span></p>
+        </div>
+        <div class="rotu-trait">
+          <p class="rotu-trait-label"><span class="lang-fi">Lihan marmorointi</span><span class="lang-sv">Köttsmarmorering</span><span class="lang-en">Beef marbling</span></p>
+          <div class="rotu-trait-bar"><div class="rotu-trait-fill" style="width:82%"></div></div>
+          <p class="rotu-trait-note"><span class="lang-fi">Luonnonlaitumilta kertyvä rasvamarmorointi tuo poikkeuksellisen maun</span><span class="lang-sv">Naturlig marmorering från betesmarkerna ger exceptionell smak</span><span class="lang-en">Natural marbling from pasture grazing delivers exceptional depth of flavour</span></p>
+        </div>
+        <div class="rotu-trait">
+          <p class="rotu-trait-label"><span class="lang-fi">Laidunnustehokkuus</span><span class="lang-sv">Beteseffektivitet</span><span class="lang-en">Grazing efficiency</span></p>
+          <div class="rotu-trait-bar"><div class="rotu-trait-fill" style="width:95%"></div></div>
+          <p class="rotu-trait-note"><span class="lang-fi">Hyödyntää vaativiakin laidunalueita, pitää perinnebiotooppeja avoimena</span><span class="lang-sv">Nyttiggör även krävande betesmarker, håller traditionella biotoper öppna</span><span class="lang-en">Utilises even demanding pasture, keeps traditional biotopes open</span></p>
+        </div>
+      </div>
+      <div class="rotu-desc">
+        <div class="rotu-desc-item">
+          <p class="rotu-desc-lbl"><span class="lang-fi">Tuntomerkit</span><span class="lang-sv">Kännetecken</span><span class="lang-en">Distinctive features</span></p>
+          <p class="rotu-desc-val"><span class="lang-fi">Pitkä, aaltoileva karvapeite. Leveä sarvet. Ruskeansävyinen värivalikoima luonnonvalkoisesta tummanpunaiseen. Matala, kompakti runko.</span><span class="lang-sv">Lång, vågig päls. Breda horn. Brun färgskala från naturvitt till mörkrött. Lågt, kompakt körper.</span><span class="lang-en">Long, wavy double coat. Wide spreading horns. Brown tonal range from natural cream to deep red. Low, compact frame.</span></p>
+        </div>
+        <div class="rotu-desc-item">
+          <p class="rotu-desc-lbl"><span class="lang-fi">Maku</span><span class="lang-sv">Smak</span><span class="lang-en">Flavour profile</span></p>
+          <p class="rotu-desc-val"><span class="lang-fi">Täyteläinen, hieman metsäinen maku. Liha on tummempaa ja rakenteeltaan tiheämpää kuin tavallinen naudanliha. Hidas kypsytys tuo esiin rikkaan maun.</span><span class="lang-sv">Fyllig, lätt skogig smak. Köttet är mörkare och tätare i konsistensen än vanligt nötkött. Långsam mogning framhäver den rika smaken.</span><span class="lang-en">Rich, slightly gamey depth of flavour. The meat is darker and denser in texture than standard beef. Slow ageing unlocks its full complexity.</span></p>
+        </div>
+        <div class="rotu-desc-item">
+          <p class="rotu-desc-lbl"><span class="lang-fi">Käyttötarkoitus Larvamäellä</span><span class="lang-sv">Användning på Larvamäki</span><span class="lang-en">Use at Larvamäen</span></p>
+          <p class="rotu-desc-val"><span class="lang-fi">Emolehmätuotanto: vasikat kasvavat emojensa kanssa laitumella. Sonnivasikat kasvatetaan teuraiksi, lehmävasikat lisäykseen tai myyntiin.</span><span class="lang-sv">Dikalvsproduktion: kalvarna växer med sina mödrar på betet. Tjurkalvar föds upp till slakt, kvigkalvar till avel eller försäljning.</span><span class="lang-en">Cow-calf production: calves grow on pasture with their mothers. Bull calves are raised for beef, heifer calves for breeding or sale.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="order" id="tilaus">
+  <div class="container">
+    <p class="s-label reveal"><span class="lang-fi">Tilaaminen</span><span class="lang-sv">Beställning</span><span class="lang-en">How to order</span></p>
+    <h2 class="s-title reveal">
+      <span class="lang-fi">Suoraa lihaa<br>ilman välikäsiä.</span>
+      <span class="lang-sv">Direkt kött<br>utan mellanhänder.</span>
+      <span class="lang-en">Direct beef,<br>no middlemen.</span>
+    </h2>
+    <p class="s-body reveal">
+      <span class="lang-fi">Myymme lihan suoraan tilalta. Toimitamme puolirunkoina tai neljänneksessä. Pakkaukset räätälöidään toiveen mukaan.</span>
+      <span class="lang-sv">Vi säljer köttet direkt från gården. Vi levererar i halv- eller kvartskropp. Förpackningarna anpassas efter önskemål.</span>
+      <span class="lang-en">We sell beef direct from the farm in half or quarter carcass. Packing is tailored to your preference.</span>
+    </p>
+    <div class="order-steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div class="step-icon">✉</div>
+        <h3 class="step-title"><span class="lang-fi">Ota yhteyttä</span><span class="lang-sv">Kontakta oss</span><span class="lang-en">Get in touch</span></h3>
+        <p class="step-desc"><span class="lang-fi">Lähetä sähköpostia tai soita. Kerrotaan saatavuudesta ja seuraavista teurastuspäivistä. Kaikki liha on ennakkotilauksessa.</span><span class="lang-sv">Skicka e-post eller ring. Vi berättar om tillgänglighet och kommande slaktdagar. Allt kött är förhandsbeställt.</span><span class="lang-en">Send an email or call. We will let you know about availability and upcoming slaughter dates. All beef is ordered in advance.</span></p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div class="step-icon">⚖</div>
+        <h3 class="step-title"><span class="lang-fi">Sovitaan osuus</span><span class="lang-sv">Välj din andel</span><span class="lang-en">Choose your share</span></h3>
+        <p class="step-desc"><span class="lang-fi">Puolirunko tai neljännes eläimestä. Sopiva koko perheen pakastimen mukaan. Pakkausohjeet sovitaan yhdessä.</span><span class="lang-sv">Halv- eller kvartskropp. Rätt storlek beroende på fryskapacitet. Styckningsanvisningar bestäms tillsammans.</span><span class="lang-en">Half or quarter carcass. Right size for your freezer space. Butchering instructions agreed together.</span></p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div class="step-icon">🥩</div>
+        <h3 class="step-title"><span class="lang-fi">Nouto tai toimitus</span><span class="lang-sv">Hämtning eller leverans</span><span class="lang-en">Collection or delivery</span></h3>
+        <p class="step-desc"><span class="lang-fi">Liha toimitetaan sovittuna ajankohtana vakuumipakattuna suoraan kotiovellesi tai nouto tilalta mahdollinen. Kerrotaan toiveet ja sovitaan yhdessä.</span><span class="lang-sv">Köttet levereras vid överenskommen tidpunkt, vakuumpackat, direkt till din dörr eller avhämtning från gården är möjlig. Meddela dina önskemål.</span><span class="lang-en">Beef delivered at an agreed time, vacuum packed, straight to your door &mdash; or collection from the farm is possible. Let us know your preference.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
+  <div class="gallery-strip-inner">
+    <img src="images/hero.jpg" alt="Ylämaankarja maisemassa">
+    <img src="images/gallery2.jpg" alt="Larvamäen tila">
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="yhteystiedot">
+  <div class="container">
+    <p class="s-label reveal"><span class="lang-fi">Yhteystiedot</span><span class="lang-sv">Kontakt</span><span class="lang-en">Contact</span></p>
+    <h2 class="s-title reveal">
+      <span class="lang-fi">Ollaan yhteyksissä.</span>
+      <span class="lang-sv">Låt oss höras.</span>
+      <span class="lang-en">Let's talk.</span>
+    </h2>
+    <div class="contact-grid">
+      <div class="contact-list">
+        <div class="contact-item reveal">
+          <span class="contact-lbl"><span class="lang-fi">Sijainti</span><span class="lang-sv">Plats</span><span class="lang-en">Location</span></span>
+          <span class="contact-val">Pojanluoma, 60800 Ilmajoki<br>Etelä-Pohjanmaa</span>
+        </div>
+        <div class="contact-item reveal">
+          <span class="contact-lbl"><span class="lang-fi">Sähköposti</span><span class="lang-sv">E-post</span><span class="lang-en">Email</span></span>
+          <span class="contact-val"><a href="mailto:larvamaentila@gmail.com">larvamaentila@gmail.com</a></span>
+        </div>
+        <div class="contact-item reveal">
+          <span class="contact-lbl">Facebook</span>
+          <span class="contact-val"><a href="https://www.facebook.com/larvamaentila/" target="_blank" rel="noopener">Larvamäen Tila</a></span>
+        </div>
+        <div class="contact-item reveal">
+          <span class="contact-lbl"><span class="lang-fi">Tuotantotyyppi</span><span class="lang-sv">Produktionstyp</span><span class="lang-en">Production type</span></span>
+          <span class="contact-val"><span class="lang-fi">Emolehmätuotanto &mdash; ylämaankarja, luonnonlaidun</span><span class="lang-sv">Dikalvsproduktion &mdash; Highlandnöt, naturbete</span><span class="lang-en">Cow-calf production &mdash; Highland cattle, natural pasture</span></span>
+        </div>
+        <div class="contact-cta reveal">
+          <a href="mailto:larvamaentila@gmail.com">
+            <span class="lang-fi">Kysy lihasta</span>
+            <span class="lang-sv">Fråga om kött</span>
+            <span class="lang-en">Ask about beef</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-quote reveal">
+        <blockquote>
+          <span class="lang-fi">"Ylämaankarja elää niin kuin se on tarkoitettu &mdash; ulkona, laumassa, laitumella."</span>
+          <span class="lang-sv">"Highlandnöt lever som de är ämnade &mdash; utomhus, i flock, på bete."</span>
+          <span class="lang-en">"Highland cattle live as they were meant to &mdash; outdoors, in a herd, on pasture."</span>
+        </blockquote>
+        <cite>Larvamäen Tila, Pojanluoma</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>
+    <span class="lang-fi">Demo-sivusto, suunniteltu Anton Jalosen toimesta. Ei vielä virallisesti julkaistu. <a href="mailto:anton.jalonen@gmail.com">anton.jalonen@gmail.com</a></span>
+    <span class="lang-sv">Demowebbplats, designad av Anton Jalonen. Ännu inte officiellt publicerad. <a href="mailto:anton.jalonen@gmail.com">anton.jalonen@gmail.com</a></span>
+    <span class="lang-en">Demo site, designed by Anton Jalonen. Not yet officially launched. <a href="mailto:anton.jalonen@gmail.com">anton.jalonen@gmail.com</a></span>
+  </p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('lang', lang);
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('.lang-btns button').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('btn-' + lang);
+  if (btn) btn.classList.add('active');
+}
+(function() {
+  const s = localStorage.getItem('lang');
+  if (s && ['fi','sv','en'].includes(s)) setLang(s);
+  else setLang('fi');
+})();
+
+function toggleMenu() {
+  document.getElementById('navOverlay').classList.toggle('open');
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
